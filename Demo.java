@@ -24,9 +24,31 @@ public class Demo{
     }
     String x = "{";
     for (int i=0; i<args.length-1; i++){
-      x+= arrToString.main(args[i]) + "\n";
+      x+= arrToString(args[i]) + "\n";
     }
-    x+= arrToString.main(args[args.length-1]);
+    x+= arrToString(args[args.length-1]);
     return x += "}";
   }
+  public static int[][] create2DArray(int rows, int cols, int maxValue){
+    int[][] a = new int[rows][cols];
+    for (int i =0; i <a.length; i++){
+      for (int j=0; j<a[i].length; j++){
+        a[i][j] = (int) Math.round(Math.random() * (maxValue)) ;
+      }
+    }
+    return a;
+  }
+  public static int[][] create2DArrayRandomized(int rows, int cols, int maxValue){
+    int[][] a = new int[rows][];
+    for (int i =0; i <a.length; i++){
+      int x = (int) Math.round(Math.random() * cols);
+      a[i] = new int[x];
+      for (int j=0; j<a[i].length; j++){
+        a[i][j] = (int) Math.round(Math.random() * (maxValue));
+      }
+    }
+    return a;
+  }
+
+
 }
